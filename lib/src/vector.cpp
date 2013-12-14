@@ -23,8 +23,48 @@ namespace gca {
 		return *this;
 	}
 
-	GCA_vector& GCA_vector::operator*=(const GCA_scalar& a) {
-		m_data *= a.value();
+	GCA_vector GCA_vector::operator*(const GCA_scalar& other) {
+		GCA_vector v(*this);
+		v *= other;
+		return v;
+	}
+
+	GCA_vector& GCA_vector::operator*=(const GCA_scalar& other) {
+		m_data *= other.value();
+		return *this;
+	}
+
+	GCA_vector GCA_vector::operator/(const GCA_scalar& other) {
+		GCA_vector v(*this);
+		v /= other;
+		return v;
+	}
+
+	GCA_vector& GCA_vector::operator/=(const GCA_scalar& other) {
+		m_data /= other.value();
+		return *this;
+	}
+
+	GCA_vector GCA_vector::operator+(const GCA_vector& other) {
+		GCA_vector v(*this);
+		v += other;
+		return v;
+	}
+
+	GCA_vector& GCA_vector::operator+=(const GCA_vector& other) {
+		m_data += other.m_data;
+		return *this;
+	}
+
+	GCA_vector GCA_vector::operator-(const GCA_vector& other) {
+		GCA_vector v(*this);
+		v -= other;
+		return v;
+	}
+
+	GCA_vector& GCA_vector::operator-=(const GCA_vector& other) {
+		m_data -= other.m_data;
+		return *this;
 	}
 
 	CommaTrick GCA_vector::operator<<(double d) {

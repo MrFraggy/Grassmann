@@ -15,7 +15,18 @@ namespace gca {
 		GCA_vector(double x, double y, double z, double w);
 
 		GCA_vector& operator=(const GCA_vector& other);
-		GCA_vector& operator*=(const GCA_scalar& a);
+
+		GCA_vector operator*(const GCA_scalar& other);
+		GCA_vector& operator*=(const GCA_scalar& other);
+
+		GCA_vector operator/(const GCA_scalar& other);
+		GCA_vector& operator/=(const GCA_scalar& other);
+
+		GCA_vector operator+(const GCA_vector& other);
+		GCA_vector& operator+=(const GCA_vector& other);
+
+		GCA_vector operator-(const GCA_vector& other);
+		GCA_vector& operator-=(const GCA_vector& other);
 
 		void operator^(const GCA_vector& other);
 		GCA_antitrivector operator~();
