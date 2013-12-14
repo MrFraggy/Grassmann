@@ -2,9 +2,27 @@
 
 namespace gca{
 
-	GCA_scalar::GCA_scalar() : k(0.0){};
-	GCA_scalar::GCA_scalar(const GCA_scalar& other) : k(other.k){};
-	GCA_scalar::GCA_scalar(double s) : k(s){};
+	GCA_scalar::GCA_scalar() : 
+		GCA_scalar(0.0)
+	{
+
+	}
+
+	GCA_scalar::GCA_scalar(const GCA_scalar& other) : 
+		GCA_scalar(other.k)
+	{
+
+	}
+
+	GCA_scalar::GCA_scalar(double s) : 
+		k(s)
+	{
+
+	}
+
+	double GCA_scalar::value() const {
+		return k;
+	}
 	
 	GCA_scalar& GCA_scalar::operator=(const GCA_scalar& other){
 		k = other.k;

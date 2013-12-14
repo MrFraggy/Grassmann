@@ -14,6 +14,8 @@ namespace gca{
 		GCA_scalar(const GCA_scalar& other);
 		GCA_scalar(double s);
 		
+		double value() const;
+
 		GCA_scalar& operator=(const GCA_scalar& other);
 		GCA_scalar& operator=(double other);
 
