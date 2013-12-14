@@ -19,6 +19,15 @@ namespace gca{
 		GCA_scalar& operator=(const GCA_scalar& other);
 		GCA_scalar& operator=(double other);
 
+		GCA_scalar operator+(const GCA_scalar& other);
+		GCA_scalar& operator+=(const GCA_scalar& other);
+		GCA_scalar operator-(const GCA_scalar& other);
+		GCA_scalar& operator-=(const GCA_scalar& other);
+		GCA_scalar operator*(const GCA_scalar& other);
+		GCA_scalar& operator*=(const GCA_scalar& other);
+		GCA_scalar operator/(const GCA_scalar& other);
+		GCA_scalar& operator/=(const GCA_scalar& other);
+
 		GCA_scalar& operator^(const GCA_scalar& other);
 		GCA_antiquadvector operator~();
 

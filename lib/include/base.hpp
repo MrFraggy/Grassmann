@@ -1,6 +1,7 @@
 #pragma once
 #include <scalar.hpp>
 #include <bitset>
+#include <cassert>
 
 namespace gca{
 	typedef enum {
@@ -26,17 +27,103 @@ namespace gca{
 	{
 	protected:
 		std::bitset<emax> bases;
-		GCA_scalar valeurs[emax];
+		std::array<GCA_scalar, emax> valeurs;
+
+		void reset() {
+			bases.reset();
+		}
 
 	public:
-		GCA_scalar get(GCA_base b){
-			assert(bases[b] == 0, "Base doesn't exist");
+		GCA_base() = default;
+
+		GCA_base(const GCA_base& other) :
+			bases(other.bases), valeurs(other.valeurs)
+		{
+
+		}
+
+		GCA_base& operator=(const GCA_base& other) {
+			bases = other.bases;
+			valeurs = other.valeurs;
+			return *this;
+		}
+
+		GCA_base operator*(const GCA_scalar& other) {
+			GCA_base b(*this);
+			b *= other;
+			return b;
+		}
+
+		GCA_base& operator*=(const GCA_scalar& other) {
+			for(uint16_t i = 0; i<bases.size(); ++i) {
+				if(bases[i])
+					valeurs[i] *= other;					 
+			}
+			return *this;
+		}
+
+		GCA_base operator/(const GCA_scalar& other) {
+			GCA_base b(*this);
+			b /= other;
+			return b;
+		}
+
+		GCA_base& operator/=(const GCA_scalar& other) {
+			for(uint16_t i = 0; i<bases.size(); ++i) {
+				if(bases[i])
+					valeurs[i] /= other;					 
+			}
+			return *this;
+		}
+
+		GCA_base operator+(const GCA_base& other) {
+			GCA_base b(*this);
+			b += other;
+			return b;
+		}
+
+		GCA_base& operator+=(const GCA_base& other) {
+			for(uint16_t i = 0; i<bases.size(); ++i) {
+				assert(((!bases[i] && other.bases[i]) || (bases[i] && !other.bases[i])) && "base not of the same ");
+				
+				valeurs[i] += other.valeurs[i];					 
+			}
+			return *this;
+		}
+
+		GCA_base operator-(const GCA_base& other) {
+			GCA_base b(*this);
+			b -= other;
+			return b;
+		}
+
+		GCA_base& operator-=(const GCA_base& other) {
+			for(uint16_t i = 0; i<bases.size(); ++i) {
+				assert(((!bases[i] && other.bases[i]) || (bases[i] && !other.bases[i])) && "base not of the same ");
+				
+				valeurs[i] -= other.valeurs[i];					 
+			}
+			return *this;
+		}
+
+		GCA_scalar get(Base b){
+			assert(bases[b] == 0 && "Base doesn't exist");
 			return valeurs[b];
 		}
 
-		void set(GCA_base b, GCA_scalar s){
+		void set(Base b, GCA_scalar s){
 			valeurs[b] = s;
 			bases[b] = 1;
 		}
+
+		friend std::ostream& operator<<(std::ostream& out, GCA_base& b);
 	};
+
+	inline std::ostream& operator<<(std::ostream& out, GCA_base& b) {
+		for(uint16_t i = 0; i<b.bases.size(); ++i)
+				if(b.bases[i])
+					std::cout << b.valeurs[i] << " ";
+
+		return out;
+	}
 }

@@ -34,6 +34,50 @@ namespace gca{
 		return *this;
 	}
 
+	GCA_scalar GCA_scalar::operator+(const GCA_scalar& other) {
+		GCA_scalar s(*this);
+		s+=other;
+		return s;
+	}
+
+	GCA_scalar& GCA_scalar::operator+=(const GCA_scalar& other) {
+		k += other.k;
+		return *this;
+	}
+
+	GCA_scalar GCA_scalar::operator-(const GCA_scalar& other) {
+		GCA_scalar s(*this);
+		s-=other;
+		return s;
+	}
+
+	GCA_scalar& GCA_scalar::operator-=(const GCA_scalar& other) {
+		k -= other.k;
+		return *this;
+	}
+
+	GCA_scalar GCA_scalar::operator*(const GCA_scalar& other) {
+		GCA_scalar s(*this);
+		s*=other;
+		return s;
+	}
+
+	GCA_scalar& GCA_scalar::operator*=(const GCA_scalar& other) {
+		k *= other.k;
+		return *this;
+	}
+
+	GCA_scalar GCA_scalar::operator/(const GCA_scalar& other) {
+		GCA_scalar s(*this);
+		s/=other;
+		return s;
+	}
+
+	GCA_scalar& GCA_scalar::operator/=(const GCA_scalar& other) {
+		k /= other.k;
+		return *this;
+	}
+
 
 	GCA_scalar& GCA_scalar::operator^(const GCA_scalar& other){
 		k = k*other.k;
