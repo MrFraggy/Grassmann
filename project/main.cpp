@@ -10,6 +10,8 @@ int main(void){
 	gca::GCA_vector b;
 	b << -1.0, -3.0, 2.0, 1.0;
 	std::cout << b << std::endl;
+	b *= 3.0;
+	std::cout << b << std::endl;
 	/*gca::GCA_bivector l = a^b;
 
 	std::cout << "l : " << l << std::endl;

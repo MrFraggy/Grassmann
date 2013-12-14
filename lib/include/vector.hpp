@@ -5,7 +5,7 @@
 #include <Eigen/Dense>
 
 namespace gca {
-
+	class GCA_scalar;
 	class CommaTrick;
 	
 	class GCA_vector {
@@ -15,6 +15,18 @@ namespace gca {
 		GCA_vector(double x, double y, double z, double w);
 
 		GCA_vector& operator=(const GCA_vector& other);
+
+		GCA_vector operator*(const GCA_scalar& other);
+		GCA_vector& operator*=(const GCA_scalar& other);
+
+		GCA_vector operator/(const GCA_scalar& other);
+		GCA_vector& operator/=(const GCA_scalar& other);
+
+		GCA_vector operator+(const GCA_vector& other);
+		GCA_vector& operator+=(const GCA_vector& other);
+
+		GCA_vector operator-(const GCA_vector& other);
+		GCA_vector& operator-=(const GCA_vector& other);
 
 		void operator^(const GCA_vector& other);
 		GCA_antitrivector operator~();
@@ -52,4 +64,9 @@ namespace gca {
 		out << v.m_data.transpose();
 		return out;
 	}
+
+	GCA_vector operator*(const GCA_vector& a, const GCA_scalar& b);
+	GCA_vector operator*(const GCA_scalar& a, const GCA_scalar& b);
+	
+
 }
