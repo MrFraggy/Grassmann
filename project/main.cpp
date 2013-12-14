@@ -2,6 +2,10 @@
 #include <grassmannCayley.hpp>
 
 int main(void){
+	gca::GCA_scalar a(1.0);
+	std::cout<< a << std::endl;
+	a = 3.0;
+	std::cout<< a << std::endl;
 	//gca::GCA_vector a(1.0,2.0,3.0,1.0);
 	gca::GCA_vector b;
 	b << -1.0, -3.0, 2.0, 1.0;

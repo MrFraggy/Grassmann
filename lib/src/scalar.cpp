@@ -1,3 +1,5 @@
+#include <scalar.hpp>
+
 namespace gca{
 
 	GCA_scalar::GCA_scalar() : k(0.0){};
@@ -9,6 +11,12 @@ namespace gca{
 		return *this;
 	}
 
+	GCA_scalar& GCA_scalar::operator=(double other){
+		k = other;
+		return *this;
+	}
+
+
 	GCA_scalar& GCA_scalar::operator^(const GCA_scalar& other){
 		k = k*other.k;
 		return *this;
@@ -19,10 +27,6 @@ namespace gca{
 		return v;
 	}*/
 
-	std::ostream& GCA_scalar::operator<<(std::ostream& out){
-		out << k << std::endl;
-		return out;
-	}
 	GCA_scalar& GCA_scalar::operator<<(double s){
 		k = s;
 		return *this;
