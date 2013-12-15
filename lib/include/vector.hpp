@@ -25,6 +25,20 @@ namespace gca {
 		CommaTrick operator<<(double d);
 		friend class CommaTrick;
 
+		GCA_vector operator-() const;
+
+		GCA_vector operator*(const GCA_scalar& other);
+		GCA_vector& operator*=(const GCA_scalar& other);
+
+		GCA_vector operator/(const GCA_scalar& other);
+		GCA_vector& operator/=(const GCA_scalar& other);
+
+		GCA_vector operator+(const GCA_vector& other);
+		GCA_vector& operator+=(const GCA_vector& other);
+
+		GCA_vector operator-(const GCA_vector& other);
+		GCA_vector& operator-=(const GCA_vector& other);
+
 	private:
 
 	};

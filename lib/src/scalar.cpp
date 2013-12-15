@@ -23,6 +23,10 @@ namespace gca{
 	double GCA_scalar::value() const {
 		return k;
 	}
+
+	GCA_scalar GCA_scalar::operator-() {
+		return GCA_scalar(-k);
+	}
 	
 	GCA_scalar& GCA_scalar::operator=(const GCA_scalar& other){
 		k = other.k;
