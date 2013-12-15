@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include <antiquadvector.hpp>
 
 namespace gca{
 	
@@ -31,7 +30,6 @@ namespace gca{
 		GCA_scalar& operator/=(const GCA_scalar& other);
 
 		GCA_scalar& operator^(const GCA_scalar& other);
-		GCA_antiquadvector operator~();
 
 		friend std::ostream& operator<<(std::ostream& out, const GCA_scalar& a);
 		GCA_scalar& operator<<(double s);

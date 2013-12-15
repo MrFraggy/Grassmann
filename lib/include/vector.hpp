@@ -1,11 +1,8 @@
 #pragma once
 
-#include <antitrivector.hpp>
 #include <bivector.hpp>
 #include <base.hpp>
 #include <iostream>
-#include <Eigen/Dense>
-#include <base.hpp>
 
 namespace gca {
 	class GCA_scalar;
@@ -20,11 +17,9 @@ namespace gca {
 
 
 		GCA_bivector operator^(const GCA_vector& other);
-		GCA_antitrivector operator~();
-
 		CommaTrick operator<<(double d);
 		friend class CommaTrick;
-
+		
 		GCA_vector operator-() const;
 
 		GCA_vector operator*(const GCA_scalar& other);

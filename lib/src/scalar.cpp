@@ -89,7 +89,7 @@ namespace gca{
 	}
 
 	/*GCA_antiquadvector GCA_scalar::operator~(){
-		GCA_antiquadvector v();
+		//GCA_antiquadvector v(*this);
 		return v;
 	}*/
 

@@ -17,6 +17,8 @@ int main(void){
 	gca::GCA_vector x3(-1.0,-1.0,-2.0,1.0);
 	gca::GCA_trivector d = x1^x2^x3;
 	std::cout << d << std::endl;
-	/*std::cout << "intersection : " << ~d^~l << std::endl;*/
+
+	auto i = ~d^~l;
+	std::cout << "intersection : " << i << std::endl;
 	return 0;
 }
