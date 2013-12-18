@@ -4,8 +4,6 @@
 #include <bivector.hpp>
 #include <base.hpp>
 #include <iostream>
-#include <Eigen/Dense>
-#include <base.hpp>
 
 namespace gca {
 	class GCA_scalar;
