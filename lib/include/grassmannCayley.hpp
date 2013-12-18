@@ -13,3 +13,5 @@
 
 #include <quadvector.hpp>
 #include <antiscalar.hpp>
+
+#include <basesduales.hpp>

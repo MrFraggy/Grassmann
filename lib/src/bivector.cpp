@@ -2,7 +2,6 @@
 #include <vector.hpp>
 
 namespace gca {
-	
 	GCA_trivector operator^(const GCA_bivector& a, const GCA_vector& b) {
 		GCA_trivector triv;
 		triv.set(Base::e123, a.get(e12)*b.get(e3)-a.get(e13)*b.get(e2)+a.get(e23)*b.get(e1));

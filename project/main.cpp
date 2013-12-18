@@ -29,5 +29,6 @@ int main(void){
 	visu.addBiVector(l);
 	visu.addTriVector(d);
 	visu.render();
+
 	return 0;
 }
